@@ -23,4 +23,22 @@ router.get('/userlist', function(req, res) {
   });
 });
 
+
+/* PUT */
+/* Model.update(conditions, update, [options], [callback]) */
+/* Model.findByIdAndUpdate(id, [update], [options], [callback]) */
+router.put ('/userlist', function(req, res){
+  var db = req.db;
+  var model = req.model;
+  // model.update();
+
+});
+
+
+/* DELETE */
+/* Model.findByIdAndRemove(id, [options], [callback]) */
+/* Model.remove(conditions, [callback]) */
+
+
+
 module.exports = router;
