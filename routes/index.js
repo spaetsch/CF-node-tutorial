@@ -12,6 +12,7 @@ router.get('/helloworld', function(req, res) {
 });
 
 /* GET Userlist page. */
+/* renders userlist on page */
 router.get('/userlist', function(req, res) {
   var db = req.db;
   var model = req.model;
@@ -24,21 +25,22 @@ router.get('/userlist', function(req, res) {
 });
 
 
+
 /* PUT */
 /* Model.update(conditions, update, [options], [callback]) */
 /* Model.findByIdAndUpdate(id, [update], [options], [callback]) */
-router.put ('/userlist', function(req, res){
-  var db = req.db;
-  var model = req.model;
-  // model.update();
-
+router.put ('/userlist/:id', function(req, res){
+  var id = req.params.id;
+  var updates = req.body;
+  console.log("putting this id:", id);
 });
 
 
 /* DELETE */
-/* Model.findByIdAndRemove(id, [options], [callback]) */
-/* Model.remove(conditions, [callback]) */
-
+router.delete ('/userlist/:id', function(req, res){
+  var id = req.params.id;
+  console.log("deleting this id:", id);
+});
 
 
 module.exports = router;
