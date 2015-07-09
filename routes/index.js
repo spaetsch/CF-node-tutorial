@@ -24,22 +24,31 @@ router.get('/userlist', function(req, res) {
   });
 });
 
-
-
 /* PUT */
 /* Model.update(conditions, update, [options], [callback]) */
-/* Model.findByIdAndUpdate(id, [update], [options], [callback]) */
 router.put ('/userlist/:id', function(req, res){
+  var db = req.db;
+  var model = req.model;
   var id = req.params.id;
-  var updates = req.body;
-  console.log("putting this id:", id);
+  var updates = {"username" : "testy"};
+  console.log("updating/putting this id:", id);
+  console.log("with this info:", updates);
+  model.update(id, updates, function(err){
+    if (err) return console.log(err);
+  });
+  return res.sendStatus(202);
 });
-
 
 /* DELETE */
 router.delete ('/userlist/:id', function(req, res){
-  var id = req.params.id;
-  console.log("deleting this id:", id);
+  var db = req.db;
+  var model = req.model;
+  var idToRemove = req.params.id;
+  console.log("deleting this id:", idToRemove);
+  model.remove({_id : idToRemove}, function(err){
+    if (err) return console.log(err);
+  });
+  return res.sendStatus(202);
 });
 
 

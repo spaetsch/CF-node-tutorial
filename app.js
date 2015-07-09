@@ -18,7 +18,7 @@ var userRecordSchema = new mongoose.Schema({
   email: String
 });
 
-var userRecordModel = mongoose.model('userRecordModel', userRecordSchema, 'usercollection');
+var userRecord = mongoose.model('userRecord', userRecordSchema, 'usercollection');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
-    req.model = userRecordModel;
+    req.model = userRecord;
     next();
 });
 
