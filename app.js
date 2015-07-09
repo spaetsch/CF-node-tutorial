@@ -15,6 +15,14 @@ db.once('open', function (callback) {
   // YAY
 });
 
+//data model
+var userRecordSchema = new mongoose.Schema({
+  username: String,
+  email: String
+});
+
+var userRecordModel = mongoose.model('userRecordModel', userRecordSchema, 'usercollection');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -33,10 +41,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Make our db accessible to our router
-// app.use(function(req,res,next){
-//     req.db = db;
-//     next();
-// });
+app.use(function(req,res,next){
+    req.db = db;
+    req.model = userRecordModel;
+    next();
+});
 
 
 app.use('/', routes);
