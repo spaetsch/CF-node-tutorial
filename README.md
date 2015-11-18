@@ -1,5 +1,5 @@
-# nodetest1
-Based on:
-http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+###Code Fellows - Front-End Development
+####Exercise on Node, Express, MongoDB and Mongoose
 
-converting to mongoose instead of monk
+- Based on: http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+- Converted to using to mongoose instead of monk
